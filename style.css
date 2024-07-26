@@ -6,24 +6,33 @@ body {
 
 .container {
     border: 5px solid black;
-    width: 174px;
-    height: 260px;
+    border-radius: 8px;
+    width: 348px;
+    height: 520px;
     border-color: black;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+    background-color: #F8EDE3;
 }
 
 button {
-    width: 40px;
-    height: 40px;
-    margin: 2px;
+    width: 80px;
+    height: 80px;
+    margin: 4px;
+    border-radius: 5px;
+    background-color: #DFD3C3;
 }
 
 .display {
     text-align: right;
-    /* border: 1px solid black; */
+    font-size: 40px;
+    
+}
 
+
+button.clear, button.minus, button.plus, button.times, button.divide, button.equal-to {
+    background-color: #D0B8A8;
 }
 
 .clear-divide {
@@ -32,7 +41,7 @@ button {
 }
 
 button.zero {
-    width: 130px;
+    width: 260px;
 }
 
 .clear-divide, .first-row, .second-row, .third-row, .bottom {

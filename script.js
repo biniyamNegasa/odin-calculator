@@ -49,10 +49,13 @@ for (let operation of operations){
         else if (!secondNumber){
             secondNumber = displayNumber;
             displayNumber = operate(firstNumber, operator, secondNumber);
-            display.textContent = displayNumber;
             if (displayNumber == "Can't divide by zero!"){
+                display.textContent = displayNumber;
                 displayNumber = '';
                 operator = '';
+            }
+            else {
+                display.textContent = Math.round(displayNumber*10000)/10000;
             }
             firstNumber = displayNumber;
             secondNumber = '';
@@ -66,10 +69,13 @@ equalToButton.addEventListener("click", () => {
     if (firstNumber){
         secondNumber = displayNumber;
         displayNumber = operate(firstNumber, operator, secondNumber);
-        display.textContent = displayNumber;
         if (displayNumber == "Can't divide by zero!"){
+            display.textContent = displayNumber;
             displayNumber = '';
             operator = '';
+        }
+        else {
+            display.textContent = Math.round(displayNumber*10000)/10000;
         }
         firstNumber = '';
         secondNumber = '';
