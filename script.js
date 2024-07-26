@@ -1,43 +1,3 @@
-function add(a, b){
-    return (a+b);
-};
-
-function substract(a, b){
-    return (a-b);
-};
-
-function multiply(a, b){
-    return (a*b);
-};
-
-function divide(a, b){
-    return (a/b);
-}
-
-function operate(firstNumber, operator, secondNumber){
-    firstNumber = +firstNumber;
-    secondNumber = +secondNumber;
-    let result = 0;
-    switch (operator){
-        case "+":
-            result = add(firstNumber, secondNumber);
-            break;
-        
-        case "-":
-            result = substract(firstNumber, secondNumber);
-            break;
-        
-        case "×":
-            result = multiply(firstNumber, secondNumber);
-            break;
-        
-        case "÷":
-            result = divide(firstNumber, secondNumber);
-            break;
-    }
-    return result;
-}
-
 let displayNumber = '';
 
 function populate(num){
@@ -90,6 +50,10 @@ for (let operation of operations){
             secondNumber = displayNumber;
             displayNumber = operate(firstNumber, operator, secondNumber);
             display.textContent = displayNumber;
+            if (displayNumber == "Can't divide by zero!"){
+                displayNumber = '';
+                operator = '';
+            }
             firstNumber = displayNumber;
             secondNumber = '';
             displayNumber = '';
@@ -103,8 +67,71 @@ equalToButton.addEventListener("click", () => {
         secondNumber = displayNumber;
         displayNumber = operate(firstNumber, operator, secondNumber);
         display.textContent = displayNumber;
-        firstNumber = displayNumber;
+        if (displayNumber == "Can't divide by zero!"){
+            displayNumber = '';
+            operator = '';
+        }
+        firstNumber = '';
         secondNumber = '';
-        displayNumber = '';
+        operator = '';
     }
 });
+
+clearButton.addEventListener("click", () => {
+    firstNumber = '';
+    secondNumber = '';
+    operator = '';
+    displayNumber = '';
+    display.textContent = +displayNumber;
+});
+
+
+
+function add(a, b){
+    return (a+b);
+};
+
+function substract(a, b){
+    return (a-b);
+};
+
+function multiply(a, b){
+    return (a*b);
+};
+
+function divide(a, b){
+    return (a/b);
+}
+
+function operate(firstNumber, operator, secondNumber){
+    firstNumber = +firstNumber;
+    secondNumber = +secondNumber;
+    let result = 0;
+    switch (operator){
+        case "+":
+            result = add(firstNumber, secondNumber);
+            break;
+        
+        case "-":
+            result = substract(firstNumber, secondNumber);
+            break;
+        
+        case "×":
+            result = multiply(firstNumber, secondNumber);
+            break;
+        
+        case "÷":
+            if (secondNumber == 0){
+                firstNumber = '';
+                secondNumber = '';
+                operator = '';
+                displayNumber = '';
+                result = "Can't divide by zero!";
+            }
+            else {
+                result = divide(firstNumber, secondNumber);
+            }
+            break;
+    }
+    return result;
+}
