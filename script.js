@@ -1,10 +1,5 @@
 let displayNumber = '';
 
-function populate(num){
-    displayNumber += num;
-}
-
-
 let firstNumber = '';
 let secondNumber = '';
 let operator = '';
@@ -100,6 +95,9 @@ addEventListener("keydown", (event) => {
     }
 });
 
+function populate(num){
+    displayNumber += num;
+}
 
 function add(a, b){
     return (a+b);
