@@ -27,6 +27,8 @@ button {
 .display {
     text-align: right;
     font-size: 40px;
+    border-bottom: 5px solid black;
+    flex: 1;
     
 }
 

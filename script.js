@@ -55,7 +55,7 @@ for (let operation of operations){
                 operator = '';
             }
             else {
-                display.textContent = Math.round(displayNumber*10000)/10000;
+                display.textContent = Math.round(displayNumber*1000000)/1000000;
             }
             firstNumber = displayNumber;
             secondNumber = '';
@@ -75,7 +75,7 @@ equalToButton.addEventListener("click", () => {
             operator = '';
         }
         else {
-            display.textContent = Math.round(displayNumber*10000)/10000;
+            display.textContent = Math.round(displayNumber*1000000)/1000000;
         }
         firstNumber = '';
         secondNumber = '';
@@ -91,6 +91,14 @@ clearButton.addEventListener("click", () => {
     display.textContent = +displayNumber;
 });
 
+addEventListener("keydown", (event) => {
+    let codeString = event.code;
+    let code = codeString[codeString.length-1].charCodeAt(0);
+    if (code <= 57 && code >= 48){
+        populate(String.fromCharCode(code));
+        display.textContent = displayNumber;
+    }
+});
 
 
 function add(a, b){
